@@ -22,6 +22,7 @@ from .const import (
     DEFAULT_ICON,
     DEFAULT_NAME,
     DEFAULT_TIME_OFFSET,
+    DEFAULT_TIME_WINDOW,
     DOMAIN,
     NATIONAL_RAIL_URL,
     SOAP_ACTION_URL,
@@ -40,7 +41,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_API_KEY): cv.string,
         vol.Required(CONF_ARRIVAL): cv.string,
         vol.Optional(CONF_TIME_OFFSET, default=str(DEFAULT_TIME_OFFSET)): cv.string,
-        vol.Required(CONF_TIME_WINDOW): cv.string,
+        vol.Optional(CONF_TIME_WINDOW, default=str(DEFAULT_TIME_WINDOW)): cv.string,
         vol.Required(CONF_DESTINATIONS): vol.All(cv.ensure_list, vol.Length(min=1), [cv.string]),
     }
 )
