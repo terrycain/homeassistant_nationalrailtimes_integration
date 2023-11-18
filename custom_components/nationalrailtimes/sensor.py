@@ -40,6 +40,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_ARRIVAL): cv.string,
         vol.Required(CONF_TIME_OFFSET): cv.string,
         vol.Required(CONF_TIME_WINDOW): cv.string,
+        vol.Required(CONF_DESTINATIONS): vol.All(cv.ensure_list),
     }
 )
 
@@ -83,7 +84,7 @@ async def async_setup_platform(
 ) -> None:
     """Set up the sensor platform."""
     name = config.get(CONF_NAME)
-    station = config.get[CONF_ARRIVAL]
+    station = config.get(CONF_ARRIVAL)
     destinations = config.get(CONF_DESTINATIONS)
     api_key = config.get(CONF_API_KEY)
     time_offset = config.get(CONF_TIME_OFFSET)
